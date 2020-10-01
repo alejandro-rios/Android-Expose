@@ -1,0 +1,10 @@
+<resources>
+  <string name="app_name">Android Expose</string>
+
+  <string name="nav_bar_anime_trends">Anime Trends</string>
+  <string name="nav_bar_favorites">Favorites</string>
+
+  <!-- Navigation Bar Titles-->
+  <string name="title_anime_trends">Anime Trends</string>
+  <string name="title_favorites">Favorites</string>
+</resources>
