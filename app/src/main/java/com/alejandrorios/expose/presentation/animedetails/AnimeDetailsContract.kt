@@ -12,10 +12,16 @@ interface AnimeDetailsContract {
     interface View: BaseView {
 
         fun displayAnimeDetails(anime: Anime)
+
+        fun markAsFavorite()
+
+        fun unMarkAsFavorite()
     }
 
     interface Presenter: BasePresenter<View> {
 
-        fun onViewCreated(anime: Anime?)
+        fun onViewCreated(anime: Anime)
+
+        fun processFavorite(anime: Anime)
     }
 }

@@ -7,4 +7,7 @@
   <!-- Navigation Bar Titles-->
   <string name="title_anime_trends">Anime Trends</string>
   <string name="title_favorites">Favorites</string>
+
+
+  <string name="number_episodes"># Episodes: %d</string>
 </resources>

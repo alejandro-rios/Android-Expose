@@ -9,7 +9,7 @@ import com.alejandrorios.expose.utils.base.BaseFragment
 /**
  * @author alejandrorios on 8/15/20
  */
-abstract class BaseAnimeTrendsFragment : BaseFragment() {
+abstract class BaseAnimeTrendsFragment(layout: Int) : BaseFragment(layout) {
 
     abstract fun injectFragmentBuilder(builder: AnimeTrendsComponent)
 

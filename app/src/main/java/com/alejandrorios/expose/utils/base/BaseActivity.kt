@@ -6,7 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 /**
  * @author alejandrorios on 8/15/20
  */
-abstract class BaseActivity : AppCompatActivity() {
+abstract class BaseActivity(layout: Int) : AppCompatActivity(layout) {
 
     abstract fun prepareActivityBuilder()
 

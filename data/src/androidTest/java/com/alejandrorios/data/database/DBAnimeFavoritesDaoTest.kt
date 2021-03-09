@@ -6,7 +6,7 @@ import androidx.test.core.app.ApplicationProvider
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import com.alejandrorios.data.database.dao.DBAnimeFavoritesDao
 import com.alejandrorios.data.database.models.DBAnimeAttributes
-import com.alejandrorios.data.database.models.DBAnimeFavorites
+import com.alejandrorios.data.database.models.DBAnimeFavoritesEntity
 import com.alejandrorios.data.database.models.DBCover
 import com.alejandrorios.data.database.models.DBPoster
 import com.alejandrorios.data.database.models.DBTitles
@@ -33,7 +33,7 @@ class DBAnimeFavoritesDaoTest {
             context, AnimeExposeDatabase::class.java
         ).build()
 
-        dao = db.getDBAnimeFavoritesDao()
+        dao = db.animeFavoritesDao()
     }
 
     @After
@@ -45,7 +45,7 @@ class DBAnimeFavoritesDaoTest {
     @Test
     @Throws(Exception::class)
     fun whenAnimeFavoritesIsInsertedThenDBShouldReturnTheSameData() {
-        val dbAnimeFavoritesSource = DBAnimeFavorites(
+        val dbAnimeFavoritesSource = DBAnimeFavoritesEntity(
             id = 41370,
             attributes = DBAnimeAttributes(
                 slug = "kimetsu-no-yaiba",

@@ -3,7 +3,11 @@ package com.alejandrorios.expose.di
 import android.content.Context
 import com.alejandrorios.domain.model.Anime
 import com.alejandrorios.domain.model.None
+import com.alejandrorios.domain.usecase.GetAnimeFavoritesUseCase
 import com.alejandrorios.domain.usecase.GetAnimeTrendsUseCase
+import com.alejandrorios.domain.usecase.IsAnimeFavoriteUseCase
+import com.alejandrorios.domain.usecase.RemoveAnimeFavoriteUseCase
+import com.alejandrorios.domain.usecase.UpdateAnimeFavoritesUseCase
 import com.alejandrorios.expose.AndroidExposeApplication
 import com.alejandrorios.expose.utils.CoroutinesContextProvider
 import dagger.BindsInstance
@@ -39,4 +43,12 @@ interface AppComponent : AndroidInjector<DaggerApplication> {
     fun provideIOCoroutinesContextProvider(): CoroutinesContextProvider
 
     fun provideGetAnimeTrendsUseCase(): GetAnimeTrendsUseCase
+
+    fun provideGetAnimeFavoritesUseCase(): GetAnimeFavoritesUseCase
+
+    fun provideUpdateAnimeFavoritesUseCase(): UpdateAnimeFavoritesUseCase
+
+    fun provideIsAnimeFavoriteUseCase(): IsAnimeFavoriteUseCase
+
+    fun provideRemoveAnimeFavoritesUseCase(): RemoveAnimeFavoriteUseCase
 }

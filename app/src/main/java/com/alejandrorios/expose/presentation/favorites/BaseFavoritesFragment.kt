@@ -9,7 +9,7 @@ import com.alejandrorios.expose.utils.base.BaseFragment
 /**
  * @author alejandrorios on 8/30/20
  */
-abstract class BaseFavoritesFragment : BaseFragment() {
+abstract class BaseFavoritesFragment(layout: Int) : BaseFragment(layout) {
 
     abstract fun injectFragmentBuilder(builder: FavoritesComponent)
 

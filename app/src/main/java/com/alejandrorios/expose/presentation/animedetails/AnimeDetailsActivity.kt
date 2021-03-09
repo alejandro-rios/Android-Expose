@@ -1,20 +1,24 @@
 package com.alejandrorios.expose.presentation.animedetails
 
 import android.os.Bundle
+import androidx.core.content.ContextCompat
+import coil.load
 import com.alejandrorios.domain.model.Anime
 import com.alejandrorios.expose.R
+import com.alejandrorios.expose.databinding.ActivityAnimeDetailsBinding
 import com.alejandrorios.expose.presentation.animedetails.di.AnimeDetailsComponent
 import com.alejandrorios.expose.utils.ARGUMENT_ANIME
-import kotlinx.android.synthetic.main.activity_anime_details.tvAnimeTitle
+import com.alejandrorios.expose.utils.viewBinding
 import javax.inject.Inject
 
 /**
  * @author alejandrorios on 8/18/20
  */
-class AnimeDetailsActivity : BaseAnimeDetailsActivity(), AnimeDetailsContract.View {
+class AnimeDetailsActivity : BaseAnimeDetailsActivity(R.layout.activity_anime_details), AnimeDetailsContract.View {
 
     @Inject
     lateinit var presenter: AnimeDetailsContract.Presenter
+    private val binding by viewBinding(ActivityAnimeDetailsBinding::inflate)
     private var anime: Anime? = null
 
     override fun injectActivityBuilder(builder: AnimeDetailsComponent) {
@@ -25,9 +29,8 @@ class AnimeDetailsActivity : BaseAnimeDetailsActivity(), AnimeDetailsContract.Vi
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_anime_details)
 
-        anime =
-            intent?.extras?.getParcelable<Anime>(ARGUMENT_ANIME)
-                ?: throw IllegalArgumentException("Anime item not provided")
+        anime = intent?.extras?.getParcelable<Anime>(ARGUMENT_ANIME)
+            ?: throw IllegalArgumentException("Anime item not provided")
     }
 
     override fun onResume() {
@@ -35,7 +38,7 @@ class AnimeDetailsActivity : BaseAnimeDetailsActivity(), AnimeDetailsContract.Vi
         lifecycle.addObserver(presenter)
         presenter.run {
             bind(this@AnimeDetailsActivity)
-            onViewCreated(anime)
+            onViewCreated(anime!!)
         }
     }
 
@@ -45,6 +48,28 @@ class AnimeDetailsActivity : BaseAnimeDetailsActivity(), AnimeDetailsContract.Vi
     }
 
     override fun displayAnimeDetails(anime: Anime) {
-        tvAnimeTitle?.text = anime.attributes.canonicalTitle
+        binding.run {
+            tvAnimeTitle.text = anime.attributes.canonicalTitle
+            tvAnimeSynopsis.text = anime.attributes.synopsis
+            tvAnimeTitleJp.text = anime.attributes.titles?.jaJp
+
+            anime.attributes.coverImage?.let {
+                ivDetailsImage.load(it.original) {
+                    crossfade(true)
+                }
+            }
+
+            ivAddAsFavorite.setOnClickListener {
+                presenter.processFavorite(anime)
+            }
+        }
+    }
+
+    override fun markAsFavorite() {
+        binding.ivAddAsFavorite.setImageDrawable(ContextCompat.getDrawable(this, R.drawable.ic_favorite))
+    }
+
+    override fun unMarkAsFavorite() {
+        binding.ivAddAsFavorite.setImageDrawable(ContextCompat.getDrawable(this, R.drawable.ic_favorite_border))
     }
 }

@@ -7,14 +7,68 @@
     android:background="#F0F0F0"
     tools:context=".presentation.animedetails.AnimeDetailsActivity">
 
-    <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/tvAnimeTitle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="parent"
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/ivDetailsImage"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:scaleType="centerCrop"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHeight_percent="0.3"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:text="Anime details" />
+        tools:src="@tools:sample/backgrounds/scenic" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tvAnimeTitle"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:maxLines="2"
+        android:paddingStart="16dp"
+        android:paddingTop="10dp"
+        android:paddingEnd="16dp"
+        android:paddingBottom="10dp"
+        android:textColor="@android:color/black"
+        android:textSize="22sp"
+        app:layout_constraintEnd_toStartOf="@+id/ivAddAsFavorite"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ivDetailsImage"
+        tools:text="Anime title" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tvAnimeTitleJp"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:lines="1"
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp"
+        android:textColor="@android:color/black"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvAnimeTitle"
+        tools:text="Anime title japanese" />
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/ivAddAsFavorite"
+        android:layout_width="32dp"
+        android:layout_height="32dp"
+        android:layout_margin="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/tvAnimeTitle"
+        app:layout_constraintTop_toBottomOf="@+id/ivDetailsImage"
+        app:srcCompat="@drawable/ic_favorite_border" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tvAnimeSynopsis"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingStart="16dp"
+        android:paddingTop="10dp"
+        android:paddingEnd="16dp"
+        android:paddingBottom="10dp"
+        android:textSize="18sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvAnimeTitleJp"
+        tools:text="Anime description" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

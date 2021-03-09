@@ -9,10 +9,10 @@ import dagger.Provides
  * @author alejandrorios on 9/8/20
  */
 @Module
-class DataBaseModule {
+class DatabaseModule {
 
     @Provides
     fun providesDBAnimeFavoritesDao(
         animeExposeDatabase: AnimeExposeDatabase
-    ): DBAnimeFavoritesDao = animeExposeDatabase.getDBAnimeFavoritesDao()
+    ): DBAnimeFavoritesDao = animeExposeDatabase.animeFavoritesDao()
 }

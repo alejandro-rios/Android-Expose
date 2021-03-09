@@ -6,10 +6,6 @@ import com.alejandrorios.data.entities.APICover
 import com.alejandrorios.data.entities.APIPoster
 import com.alejandrorios.data.entities.APITitles
 import com.alejandrorios.data.service.AnimeService
-import com.alejandrorios.domain.model.AnimeAttributes
-import com.alejandrorios.domain.model.Cover
-import com.alejandrorios.domain.model.Poster
-import com.alejandrorios.domain.model.Titles
 import io.mockk.MockKAnnotations
 import io.mockk.coEvery
 import io.mockk.coVerify

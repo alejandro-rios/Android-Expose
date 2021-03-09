@@ -18,4 +18,20 @@ data class AnimeAttributes(
     val episodeLength: Int,
     val youtubeVideoId: String?,
     val showType: String?
-): Parcelable
+): Parcelable {
+
+//    fun toDBAnimeAttributes(): DBAnimeAttributes {
+//        return DBAnimeAttributes(
+//            slug = slug,
+//            synopsis = synopsis,
+//            titles = titles?.toDBTitles(),
+//            canonicalTitle = canonicalTitle,
+//            posterImage = posterImage?.toDBPoster(),
+//            coverImage = coverImage?.toDBCover(),
+//            episodeCount = episodeCount,
+//            episodeLength = episodeLength,
+//            youtubeVideoId = youtubeVideoId,
+//            showType = showType
+//        )
+//    }
+}

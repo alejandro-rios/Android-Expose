@@ -9,7 +9,7 @@ import com.alejandrorios.expose.utils.base.BaseActivity
 /**
  * @author alejandrorios on 8/18/20
  */
-abstract class BaseAnimeDetailsActivity : BaseActivity() {
+abstract class BaseAnimeDetailsActivity(layout: Int) : BaseActivity(layout) {
 
     abstract fun injectActivityBuilder(builder: AnimeDetailsComponent)
 

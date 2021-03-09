@@ -1,7 +1,6 @@
 package com.alejandrorios.expose.presentation.animetrends
 
 import com.alejandrorios.domain.model.Anime
-import com.alejandrorios.expose.presentation.animedetails.AnimeDetailsListener
 import com.alejandrorios.expose.utils.base.BasePresenter
 import com.alejandrorios.expose.utils.base.BaseView
 
@@ -17,8 +16,10 @@ interface AnimeTrendsContract {
         fun showAnimeDetails(anime: Anime)
     }
 
-    interface Presenter: BasePresenter<View>, AnimeDetailsListener {
+    interface Presenter: BasePresenter<View> {
 
-        fun onViewCreated()
+        fun onResumed()
+
+        fun onAnimeClicked(anime: Anime)
     }
 }

@@ -66,6 +66,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/ivAnimeImage"
             app:layout_constraintTop_toBottomOf="@+id/tvFeedDate"
+            app:layout_constraintBottom_toBottomOf="parent"
             tools:text="@tools:sample/lorem" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>

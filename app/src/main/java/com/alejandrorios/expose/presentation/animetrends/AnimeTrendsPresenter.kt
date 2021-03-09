@@ -18,7 +18,7 @@ class AnimeTrendsPresenter @Inject constructor(
     override val parentJob = Job()
     override var view: AnimeTrendsContract.View? = null
 
-    override fun onViewCreated() {
+    override fun onResumed() {
         launchJob {
             runCatching {
                 withContext(coroutinesContextProvider.backgroundContext) {
@@ -32,7 +32,7 @@ class AnimeTrendsPresenter @Inject constructor(
         }
     }
 
-    override fun onAnimeTrendClicked(anime: Anime) {
+    override fun onAnimeClicked(anime: Anime) {
         view?.showAnimeDetails(anime)
     }
 }
